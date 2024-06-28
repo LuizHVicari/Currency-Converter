@@ -1,6 +1,7 @@
 import 'package:currency_converter/app/models/currency_model.dart';
 import 'package:currency_converter/app/views/widgets/currency_dropdown_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class InputLine extends StatefulWidget {
   final List<CurrencyModel> items;
@@ -33,6 +34,7 @@ class _InputLineState extends State<InputLine> {
         Expanded(
           flex: 2,
           child: TextField(
+            scrollPadding: const EdgeInsets.only(bottom: 40),
             controller: widget.controller,
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(

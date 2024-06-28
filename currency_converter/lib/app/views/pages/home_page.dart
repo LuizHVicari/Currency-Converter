@@ -33,35 +33,37 @@ class _HomePageState extends State<HomePage> {
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 100, left: 20, right: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const LogoImage(),
-              InputLine(
-                selectedItem: homeController.toCurrency,
-                items: homeController.currencies, 
-                onChanged: (model) {
-                  setState(() {
-                    homeController.toCurrency = model;
-                  });
-                }, 
-                controller: toText,),
-              const SizedBox(height: 10),
-              InputLine(
-                selectedItem: homeController.fromCurrency,
-                items: homeController.currencies, 
-                onChanged: (model) {
-                  setState(() {
-                    homeController.fromCurrency = model;
-                  });
-                }, 
-                controller: fromText,),
-              const SizedBox(height: 20),
-              ConfirmationButton(homeController: homeController),
-            ],
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 100, left: 20, right: 20, bottom: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const LogoImage(),
+                InputLine(
+                  selectedItem: homeController.toCurrency,
+                  items: homeController.currencies, 
+                  onChanged: (model) {
+                    setState(() {
+                      homeController.toCurrency = model;
+                    });
+                  }, 
+                  controller: toText,),
+                const SizedBox(height: 10),
+                InputLine(
+                  selectedItem: homeController.fromCurrency,
+                  items: homeController.currencies, 
+                  onChanged: (model) {
+                    setState(() {
+                      homeController.fromCurrency = model;
+                    });
+                  }, 
+                  controller: fromText,),
+                const SizedBox(height: 20),
+                ConfirmationButton(homeController: homeController),
+              ],
+            ),
           ),
         ),
       ),
